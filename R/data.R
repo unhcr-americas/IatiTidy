@@ -74,7 +74,7 @@
 #'   \item{\code{url}}{logical COLUMN_DESCRIPTION}
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
-#' @source \url{http://somewhere.important.com/}
+#' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
   "AidTypeCategory"
 
 #' @title AidTypeVocabulary
@@ -140,7 +140,7 @@
 #'   \item{\code{url}}{logical COLUMN_DESCRIPTION}
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
-#' @source \url{http://somewhere.important.com/}
+#' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
   "SectorCategory"
 
 #' @title Sector
@@ -208,7 +208,7 @@
 #'   \item{\code{url}}{logical COLUMN_DESCRIPTION}
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
-#' @source \url{http://somewhere.important.com/}
+#' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
   "Region"
 
 
@@ -238,7 +238,7 @@
 #'   \item{\code{url}}{logical COLUMN_DESCRIPTION}
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
-#' @source \url{http://somewhere.important.com/}
+#' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
   "DescriptionType"
 
 #' @title EarmarkingCategory
@@ -437,6 +437,36 @@
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
   "OrganisationRegistrationAgency"
 
+  
+#' @title OrganisationRole
+#' @description IATI codes for the role of an organisation within an activity.
+#'  An organisation can play more than one role within an activity.
+#'    This is a Core codelist.
+#' @format A data frame with 4 rows and 6 variables:
+#' \describe{
+#'   \item{\code{code}}{double COLUMN_DESCRIPTION}
+#'   \item{\code{name}}{character COLUMN_DESCRIPTION}
+#'   \item{\code{description}}{character COLUMN_DESCRIPTION}
+#'   \item{\code{category}}{logical COLUMN_DESCRIPTION}
+#'   \item{\code{url}}{logical COLUMN_DESCRIPTION}
+#'   \item{\code{status}}{character COLUMN_DESCRIPTION} 
+#'}
+#' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+  "OrganisationRole"  
+  
+#' @title OrganisationType
+#' @description This is a Non-Core codelist
+#' @format A data frame with 16 rows and 6 variables:
+#' \describe{
+#'   \item{\code{code}}{double COLUMN_DESCRIPTION}
+#'   \item{\code{name}}{character COLUMN_DESCRIPTION}
+#'   \item{\code{description}}{character COLUMN_DESCRIPTION}
+#'   \item{\code{category}}{logical COLUMN_DESCRIPTION}
+#'   \item{\code{url}}{logical COLUMN_DESCRIPTION}
+#'   \item{\code{status}}{character COLUMN_DESCRIPTION} 
+#'}
+#' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+  "OrganisationType"
 
 #' @title PolicyMarker
 #' @description The Policy Marker codelist is derived from the policy markers

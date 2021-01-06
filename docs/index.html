@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Tidy Data from IATI Data Store">
-<meta property="og:description" content="Wrapper to https://iatidatastore.iatistandard.org/querybuilder">
+<meta property="og:description" content="Wrapper for IATI DataStore: https://iatidatastore.iatistandard.org/querybuilder">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -44,6 +44,9 @@
   </a>
 </li>
 <li>
+  <a href="articles/IatiTidy.html">Get started</a>
+</li>
+<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li>
@@ -66,23 +69,31 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#iatitidy-an-r-interface-to-international-aid-transparency-initiative-data-store-" class="anchor"></a>IatiTidy: An R Interface to International Aid Transparency Initiative Data Store <img src="reference/figures/iatitidy.png" width="200" align="right">
 </h1></div>
-<p>This package wraps <a href="Wrapper%20to%20https://iatidatastore.iatistandard.org/querybuilder">IATI Datastore Query Builder</a>. For more info on the query builder, consult the dedicated <a href="https://iatistandard.org/documents/10453/IATI_Datastore_Query_Builder_User_Guide.pdf">user guide</a>.</p>
-<p>IATI Datastore provides access to development and humanitarian data that complies with the most up-to-date rules of the <a href="https://iatistandard.org">IATI Standard</a>.</p>
+<p>This package wraps <a href="Wrapper%20to%20https://iatidatastore.iatistandard.org/querybuilder">IATI Datastore Query Builder</a>. For more info on the query builder, consult the dedicated <a href="https://iatistandard.org/documents/10453/IATI_Datastore_Query_Builder_User_Guide.pdf">user guide</a>. The IATI Datastore provides access to development and humanitarian data that complies with the most up-to-date rules of the <a href="https://iatistandard.org">IATI Standard</a>.</p>
 <div id="what-is-iati" class="section level2">
 <h2 class="hasAnchor">
 <a href="#what-is-iati" class="anchor"></a>What is IATI?</h2>
+<p>Launched in Accra in 2008, the International Aid Transparency Initiative (IATI) is a multi-stakeholder initiative and international open data standard that aims to improve the transparency and openness of both development and humanitarian activities. IATI provides a mechanism for the regular, automated publication of open data on financial flows and also enables organizations to publish information on their project or programming activities, including information on monitoring, evaluation and results. Overall, 1000+ <a href="https://www.iatiregistry.org/publisher/unhcr">humanitarian and development organisations</a>, including government donors, multilateral and UN agencies and international and local NGOs currently use the IATI Standard to publish information on who funds them, where the money goes and the impact or outcome of their activities. The use of IATI for Humanitarian actors is among the commitment from the grand bargain as presented in the <a href="https://www.humportal.org/about">dedicated portal</a>.</p>
+<p>The International Aid Transparency Initiative (IATI) data to trace aid flows from donor treasuries to their final end use. IATI is designed so that people can trace development spending flows through the development implementation chain, from one organization to other organizations, right down to the final stage in the chain: spending on goods and services. <strong>Traceability</strong> in IATI works by following the money as it flows from organization to organization through the development implementation chain. Provided that all organizations publish their information, it is possible to assess how much of the total funding at the beginning of the implementation chain is spent on goods and services, and where the money is spent.</p>
 <p>Data published to IATI is published in <code>activity</code> units, the core building blocks of the data. <strong>Activities</strong> are usually projects, but they can be any unit of development cooperation as defined by the publisher, such as a program or a contract. Typically,an entire donor country program is made up of a number of activities. Each activity is given a unique identifier and contains details of all incoming and outgoing transactions. Each transaction also has a unique identifier and contains data covering,among other things,the date, the value, a description, and details about the provider and receivers of the funds. It is classified into one of three categories.</p>
 <p><strong>Disbursement</strong>: Outgoing funds placed at the disposal of a recipient government or organization, or funds transferred between two separately reported activities. Under IATI traceability standards the recipient of a disbursement should also be required to report their activities to IATI.</p>
 <p><strong>Expenditure</strong>: Outgoing funds spent directly on goods and services for the activity. The recipients of expenditures fall outside of IATI traceability standards and are considered to be the end of the implementation chain. Therefore, an expenditure provided to a non-country-based organization is considered to be funds `not reaching the country.</p>
 <p><strong>Incoming fund</strong>: Funds received for an activity, which can be from an external or internal source.</p>
+<p><strong>Organisations</strong> can have different roles in IATI (each of them being segregated into different “Organisation Types”): * Reporting Organisations, i.e. organisations voluntarily reporting about their aid projects * Implementations organisations, that actually implements the activity.</p>
+<p>A summary of the potential flows, from the <a href="https://reliefweb.int/sites/reliefweb.int/files/resources/gt-follow-the-money-traceability-methodology-230218-en.pdf">2018 OXFAM report: Follow the Money</a> is presented below:</p>
+<ul>
+<li><p><strong>Overview of traceability in IATI</strong> <img src="reference/figures/iatifig1.png" alt="Overview of traceability in IATI"></p></li>
+<li><p><strong>Details on How IATI Fields link across activities</strong> <img src="reference/figures/iatifig2.png" alt="Details on How IATI Fields link across activities"></p></li>
+</ul>
 </div>
 <div id="package-objectives" class="section level2">
 <h2 class="hasAnchor">
 <a href="#package-objectives" class="anchor"></a>Package Objectives</h2>
-<p>The objective is to extract data to perform potential analysis as below:</p>
+<p>Rather than presenting the profile of a specific organization (as already do-able through numerous other tools) through a detailed query, the objective of this package is to extract data to perform <strong>summary analysis</strong> as below:</p>
 <ul>
 <li><p>What are the <strong>most funded sectors</strong> per country?</p></li>
 <li><p>What’s the <strong>share of ODA</strong> (Official Development Assistance) among the total flow of foreign aid per country?</p></li>
+<li><p>What’s the share of ODA going to <strong>benefit of refugees</strong>? (this can complement the measurement of <a href="https://www.unhcr.org/5cf907854.pdf#page=13">Global Refugee Compact Indicators related to ODA</a>)</p></li>
 <li><p>What is the share of ODA allocated to <strong>national actors</strong>?</p></li>
 <li><p>What’s the <strong>share of Humanitarian assistance</strong> within the total ODA?</p></li>
 <li><p>Who are the <strong>main donors by country</strong> in terms of number of projects and/or total budget?</p></li>
@@ -94,7 +105,19 @@
 <div id="functionnality" class="section level2">
 <h2 class="hasAnchor">
 <a href="#functionnality" class="anchor"></a>Functionnality</h2>
-<p>The package goal is to conveniently: * pull data from the API * tidy the results in a simple data frame and * re-encode the data with digestible label from the <a href="https://iatistandard.org/en/iati-standard/203/codelists/">IATI code set</a> * generate predefined charts</p>
+<p>The package goal is to conveniently:</p>
+<ul>
+<li><p>Pull data from the API by country(ies) and date</p></li>
+<li><p>Tidy the results in a simple data frame by flattening lists within query results</p></li>
+<li><p>Re-encode the data with labels from the <a href="https://iatistandard.org/en/iati-standard/203/codelists/">IATI code set</a></p></li>
+<li><p>Generate predefined charts</p></li>
+</ul>
+<p>The package is developed in the context of UNHCR Protection Monitoring activities in the Americas. A vignette is available to display how it can be used.</p>
+</div>
+<div id="problems-with-the-iati-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#problems-with-the-iati-data" class="anchor"></a>Problems with the IATI data</h2>
+<p>There are issues with the published data. Several corrections have been made in the raw IATI data to get the current analysis. However there are still issues with the data, some of which will require manual intervention. A lis of specific issues in Humanitarian context is available <a href="https://docs.google.com/spreadsheets/d/1_pPMscFcX259hwvi1lJ3GXog4XevpgT4uZHieJKoKWY/edit#gid=0">here</a></p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -103,6 +126,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"unhcr-americas/IatiTidy"</span><span class="op">)</span></code></pre></div>
+<p>Users are welcome to flag bugs and or submit feature request <a href="https://github.com/unhcr-americas/IatiTidy/issues/new">here</a></p>
 <div id="building-package-documentation" class="section level4">
 <h4 class="hasAnchor">
 <a href="#building-package-documentation" class="anchor"></a>Building package documentation</h4>
@@ -118,7 +142,7 @@
     <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
-<li>Creative Commons Attribution 4.0 International Public License</li>
+<li><a href="https://opensource.org/licenses/mit-license.php">MIT</a></li>
 </ul>
 </div>
 <div class="developers">

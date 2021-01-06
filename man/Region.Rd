@@ -16,7 +16,7 @@ A data frame with 26 rows and 6 variables:
 }
 }
 \source{
-\url{http://somewhere.important.com/}
+\url{https://iatistandard.org/en/iati-standard/203/codelists/}
 }
 \usage{
 Region

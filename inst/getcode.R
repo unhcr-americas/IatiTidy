@@ -95,9 +95,6 @@ getiaiticode <- function() {
   sinew::makeOxygen(HumanitarianScopeVocabulary, add_fields = "source")
   save(HumanitarianScopeVocabulary, file =  "data/HumanitarianScopeVocabulary.RData")
 
-  IATIOrganisationIdentifier <- readr::read_csv("https://iatistandard.org/reference_downloads/203/codelists/downloads/clv3/csv/en/IATIOrganisationIdentifier.csv")
-  sinew::makeOxygen(IATIOrganisationIdentifier, add_fields = "source")
-  save(IATIOrganisationIdentifier, file =  "data/IATIOrganisationIdentifier.RData")
 
   IndicatorMeasure <- readr::read_csv("https://iatistandard.org/reference_downloads/203/codelists/downloads/clv3/csv/en/IndicatorMeasure.csv")
   sinew::makeOxygen(IndicatorMeasure, add_fields = "source")
@@ -107,6 +104,11 @@ getiaiticode <- function() {
   sinew::makeOxygen(IndicatorVocabulary, add_fields = "source")
   save(IndicatorVocabulary, file =  "data/IndicatorVocabulary.RData")
 
+  
+  IATIOrganisationIdentifier <- readr::read_csv("https://iatistandard.org/reference_downloads/203/codelists/downloads/clv3/csv/en/IATIOrganisationIdentifier.csv")
+  sinew::makeOxygen(IATIOrganisationIdentifier, add_fields = "source")
+  save(IATIOrganisationIdentifier, file =  "data/IATIOrganisationIdentifier.RData")  
+  
   OrganisationIdentifier <- readr::read_csv("https://iatistandard.org/reference_downloads/203/codelists/downloads/clv3/csv/en/OrganisationIdentifier.csv")
   sinew::makeOxygen(OrganisationIdentifier, add_fields = "source")
   save(OrganisationIdentifier, file =  "data/OrganisationIdentifier.RData")
@@ -115,6 +117,17 @@ getiaiticode <- function() {
   sinew::makeOxygen(OrganisationRegistrationAgency, add_fields = "source")
   save(OrganisationRegistrationAgency, file =  "data/OrganisationRegistrationAgency.RData")
 
+  OrganisationRole <- readr::read_csv("https://iatistandard.org/reference_downloads/203/codelists/downloads/clv3/csv/en/OrganisationRole.csv")
+  sinew::makeOxygen(OrganisationRole, add_fields = "source")
+  save(OrganisationRole, file =  "data/OrganisationRole.RData")
+
+  OrganisationType <- readr::read_csv("https://iatistandard.org/reference_downloads/203/codelists/downloads/clv3/csv/en/OrganisationType.csv")
+  sinew::makeOxygen(OrganisationType, add_fields = "source")
+  save(OrganisationType, file =  "data/OrganisationType.RData")
+  
+  
+  
+  
   PolicyMarker <- readr::read_csv("https://iatistandard.org/reference_downloads/203/codelists/downloads/clv3/csv/en/PolicyMarker.csv")
   sinew::makeOxygen(PolicyMarker, add_fields = "source")
   save(PolicyMarker, file =  "data/PolicyMarker.RData")
