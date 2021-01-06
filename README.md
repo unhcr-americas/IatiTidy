@@ -45,26 +45,30 @@ external or internal source.
 
 The objective is to extract data to perform potential analysis as below:
 
-  - What are the most funder sectors per country?
+  - What are the **most funded sectors** per country?
 
-  - What’s the share of ODA - Official Development Assistance among the
-    total flow of foreign aid per country?
+  - What’s the **share of ODA** (Official Development Assistance) among
+    the total flow of foreign aid per country?
 
-  - What’s the share of Humanitarian assistance within the total ODA -
-    Official Development Assistance?
+  - What is the share of ODA allocated to **national actors**?
 
-  - Who are the main donors by country in terms of number of projects
-    and/or total budget?
+  - What’s the **share of Humanitarian assistance** within the total
+    ODA?
 
-  - What’s the breakdown of Earmarking Type (Unearmarked, Tightly
+  - Who are the **main donors by country** in terms of number of
+    projects and/or total budget?
+
+  - What’s the breakdown of **Earmarking Type** (Unearmarked, Tightly
     earmarked, etc.) from Donor Funds by Year?
 
-  - relationship between when a project was planned to start (proxy for
-    when a project was conceived) and the amount of USD committed. We
-    would know if there is a trend in terms of the project size.
+  - What’s the relationship between when a project was **planned to
+    start** (proxy for when a project was conceived) and the amount of
+    USD committed. We would know if there is a trend in terms of the
+    project size?
 
-  - relationship between the amount of time by which start was delayed
-    and the amount of time by which the end of the project was delayed
+  - What’s the relationship between the amount of time by which start
+    was **delayed** and the amount of time by which the end of the
+    project was delayed?
 
 ## Functionnality
 
