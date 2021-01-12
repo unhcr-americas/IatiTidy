@@ -4,8 +4,8 @@
 # IatiTidy: An R Interface to International Aid Transparency Initiative Data Store <img src="man/figures/iatitidy.png" width="200" align="right" />
 
 This package wraps [IATI Datastore Query
-Builder](Wrapper%20to%20https://iatidatastore.iatistandard.org/querybuilder).
-For more info on the query builder, consult the dedicated [user
+Builder](https://iatidatastore.iatistandard.org/querybuilder). For more
+info on the query builder, consult the dedicated [user
 guide](https://iatistandard.org/documents/10453/IATI_Datastore_Query_Builder_User_Guide.pdf).
 The IATI Datastore provides access to development and humanitarian data
 that complies with the most up-to-date rules of the [IATI
@@ -14,13 +14,22 @@ Standard](https://iatistandard.org).
 ## What is IATI?
 
 Launched in Accra in 2008, the International Aid Transparency Initiative
-(IATI) is a multi-stakeholder initiative and international open data
-standard that aims to improve the transparency and openness of both
-development and humanitarian activities. IATI provides a mechanism for
-the regular, automated publication of open data on financial flows and
-also enables organizations to publish information on their project or
-programming activities, including information on monitoring, evaluation
-and results. Overall, 1000+ [humanitarian and development
+([IATI](https://iatistandard.org/en/about/)) is a multi-stakeholder
+initiative and international open data standard that aims to improve the
+transparency and openness of both development and humanitarian
+activities. In the 2016 Humanitarian grand Bargain, multiple
+organisations also [committed
+to](https://interagencystandingcommittee.org/greater-transparency)
+\_“Publish timely, transparent, harmonised and open high-quality data
+on humanitarian funding within two years of the World Humanitarian
+Summit in Istanbul” noting that parties “consider IATI to provide a
+basis for the purpose of a common standard.”\_\_
+
+IATI provides a mechanism for the regular, automated publication of open
+data on financial flows and also enables organizations to publish
+information on their project or programming activities, including
+information on monitoring, evaluation and results. Overall, 1000+
+[humanitarian and development
 organisations](https://www.iatiregistry.org/publisher/unhcr), including
 government donors, multilateral and UN agencies and international and
 local NGOs currently use the IATI Standard to publish information on who
@@ -73,6 +82,14 @@ segregated into different “Organisation Types”): \* Reporting
 Organisations, i.e. organisations voluntarily reporting about their aid
 projects \* Implementations organisations, that actually implements the
 activity.
+
+The main concept are nicely summarised in the table below from [IFRC
+IATI Feasibility
+Study](https://media.ifrc.org/ifrc/wp-content/uploads/sites/5/2018/03/IFRC-IATI-Feasibility-Study-Report-Final-2017-12-14.pdf)
+- see also the
+[Appendices](https://media.ifrc.org/ifrc/wp-content/uploads/sites/5/2018/03/IFRC-IATI-Feasibility-Study-Appendices-Final-2017-12-14.pdf)
+
+![Overview of traceability in IATI](man/figures/iatifig3.png)
 
 A summary of the potential flows, from the [2018 OXFAM report: Follow
 the

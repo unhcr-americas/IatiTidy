@@ -1,13 +1,10 @@
-## https://www.youtube.com/watch?v=Dlh9mQnFlLM&t=3s
-# https://fts.unocha.org/sites/default/files/2020-10/improving-humanitarian-transparency-with-the-iati-and-the-un-ocha-fts.pdf
-
-## https://api.hpc.tools/docs/v1/
-
-# https://api.hpc.tools/docs/v1/#public_fts_flow_get?year=2015&filterBy=destinationGlobalClusterCode:HEA&filterBy=destinationLocationID:114,115&groupby=organization&format=xml
-
-#' get_FTS
-#'
-#' Function to get flows from FTS.
+#' @name get_FTS
+#' @rdname get_FTS
+#' @title Pull FTS data from API
+#' @description Function to get flows from FTS.
+#' https://api.hpc.tools/docs/v1/
+#' for instance
+#' https://api.hpc.tools/docs/v1/#public_fts_flow_get?year=2015&filterBy=destinationGlobalClusterCode:HEA&filterBy=destinationLocationID:114,115&groupby=organization&format=xml
 #'
 #' @param url URL for FTS API
 #' @param ext  API endpoint
@@ -19,7 +16,7 @@
 #'\dontrun{
 #' data <- get_FTS(url = "https://api.hpc.tools",
 #'                              ext = "/v1/public/fts/flow?",
-#'                              year = "year=2019,2020")
+#'                              year = "year=2020")
 #' }
 #'
 #' @export
@@ -27,10 +24,17 @@
 
 get_FTS <- function(url = "https://api.hpc.tools",
                     ext = "/v1/public/fts/flow?",
-                    year = "year=2019,2020"
+                    boundary = "year=2020",
+                    #filter = "&destinationCountryISO3:ABW,AIA,ARG,ASM,ATG,BES,BHS,BLM,BLZ,BMU,BOL,BRA,BRB,CAN,CHL,COL,CRI,CUB,CUW,CYM,DMA,DOM,ECU,FLK,GLP,GRD,GTM,GUF,GUY,HND,HTI,JAM,KNA,LCA,MAF,MEX,MSR,MTQ,NFK,NIC,PAN,PER,PRI,PRY,SGS,SLV,SPM,SUR,SXM,TCA,TTO,URY,USA,VCT,VEN,VGB,VIR",
+                    #grouping = "&groupby=country",
+                    limit = "&limit=1000"
 )
 {
 
+  reference <- unhcrdatapackage::reference
+  as.character(reference[ reference$UNHCRBureau == "Americas", c("iso_3")])
+  
+  #ABW,AIA,ARG,ASM,ATG,BES,BHS,BLM,BLZ,BMU,BOL,BRA,BRB,CAN,CHL,COL,CRI,CUB,CUW,CYM,DMA,DOM,ECU,FLK,GLP,GRD,GTM,GUF,GUY,HND,HTI,JAM,KNA,LCA,MAF,MEX,MSR,MTQ,NFK,NIC,PAN,PER,PRI,PRY,SGS,SLV,SPM,SUR,SXM,TCA,TTO,URY,USA,VCT,VEN,VGB,VIR
   
   # # Load packages
   # library(tidyverse)
@@ -46,7 +50,12 @@ get_FTS <- function(url = "https://api.hpc.tools",
   # year <-"year=2019,2020"
   # organizationAbbrev <-"organizationAbbrev=wfp,unicef"
   # countryISO3 <- ""
-  path <- paste0(ext, year)
+  path <- paste0(ext, 
+                 boundary, 
+                # filter, 
+                # grouping,
+                limit
+                 )
   #path <- "/v1/public/organization"
 
 
@@ -79,11 +88,21 @@ get_FTS <- function(url = "https://api.hpc.tools",
   # encode the URL to replace all spaces with the ascii value for a space which is %20.
   # and Convert JSON to data frame
   ftsflow <- rjson::fromJSON(RCurl::getURL(utils::URLencode(paste0(url,
-                                                                    path))))
+                                                                    path))
+                                           ))
   
   #names(ftsflow$data$flows)
-  flows <- ftsflow$data$flows
+  
+  if ( !(is.na(grouping))) {
+    flows <- ftsflow$data
+  } else {
+    flows <- ftsflow$data$flows
+  }
   #str(flows)
+  
+  #flowsreport1 <- ftsflow$data$report1$fundingTotals$objects
+  #flows1 <- data.frame(Reduce(rbind, report1funding))
+  
   
   # df <- data.frame(matrix(unlist(ftsflow), nrow=length(flows), byrow=T))
   # df2 <- do.call(rbind.data.frame, flows)

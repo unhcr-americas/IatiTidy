@@ -8,13 +8,12 @@ navbar:
   left:
   - text: "Articles"
     menu:
-     - text: IatiTidy
+     - text: Using IatiTidy for FTS
        href: articles/IatiTidy.html
   - text: News
     href: news/index.html
   - text: Reference
     href: reference/index.html
-
 reference:
   - title: Main API function
     contents:
@@ -25,6 +24,7 @@ reference:
     contents:
       - split_implementers
       - split_sector
+      - split_transaction
   - title: Reference Activities
     contents:
       - ActivityDateType
@@ -73,5 +73,6 @@ reference:
     contents:
       - Sector
       - SectorVocabulary
+      - SectorCategory
       - UNSDGGoals
       - UNSDGTargets

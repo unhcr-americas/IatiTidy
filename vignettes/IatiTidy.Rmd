@@ -1,6 +1,5 @@
 ---
 title: "Using IatiTidy"
-author: "Vignette Author"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -8,7 +7,14 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-activities2 <- read.csv(URLencode(url2), as.is=T,na.strings="")
+
+To understand how the [UNOCHA Financial Tracking Service](https://fts.unocha.org/) is working, you can wathc this [intro video](https://www.youtube.com/watch?v=Dlh9mQnFlLM&t=3s)
+
+
+OCHA has looked at building interoperrability with IATI through a [pilot project in 2019/2020](https://fts.unocha.org/content/iati-fts-pilot-key-learning), resulting in [Lessons from connecting IATI And FTS](https://iatistandard.org/en/news/lessons-from-connecting-iati-and-fts/) and the following report:
+[Improving humanitarian transparency with the International Aid Transparency Initiative (IATI)and the UN OCHA Financial Tracking Service (FTS)](https://fts.unocha.org/sites/default/files/2020-10/improving-humanitarian-transparency-with-the-iati-and-the-un-ocha-fts.pdf)
+
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -21,24 +27,26 @@ library(IatiTidy)
 
 
 
-
+First we can pull data from the API with the `get_FTS` function:
 
 ```{r message=FALSE, warning=FALSE}
 ftsflow2020 <- get_FTS(url = "https://api.hpc.tools",
-                              ext = "/v1/public/fts/flow?",
-                              year = "year=2020")
+                    ext = "/v1/public/fts/flow?",
+                    boundary = "year=2019",
+                    limit = "&limit=1000")
 ftsflow2019 <- get_FTS(url = "https://api.hpc.tools",
-                              ext = "/v1/public/fts/flow?",
-                              year = "year=2019")
+                    ext = "/v1/public/fts/flow?",
+                    boundary = "year=2020",
+                    limit = "&limit=1000")
 ```
-
+Let's look at the structure of the output
 
 ```{r message=FALSE, warning=FALSE}
 names(ftsflow2020)
 ```
 
 
-
+and the content:
 
 ```{r, echo=FALSE, results='asis'}
 knitr::kable(head(ftsflow2020, 10))

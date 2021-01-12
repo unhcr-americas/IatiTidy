@@ -1,6 +1,7 @@
-#' get_IATI_transaction
-#'
-#' Function to get activities endpoint from IATI-compliant dataset.
+#' @name get_IATI_transaction
+#' @rdname get_IATI_transaction
+#' @title Pull Transaction data from IATI datastore API
+#' @description Function to get activities endpoint from IATI-compliant dataset.
 #'
 #' @param url URL for websites containing IATI-compliant dataset. Default is 
 #'  "https://iatidatastore.iatistandard.org/search/activity?q="
@@ -13,13 +14,13 @@
 #' @return transaction Parsed content on activities from IATI-compliant datasets.
 #'
 #' @examples
-#'\dontrun{
+#' \dontrun{
 #' data <- get_IATI_transaction(url = "https://iatidatastore.iatistandard.org/search/activity?q=",
 #'                        sector_vocabulary = "sector_vocabulary:(10 1 9 7)"
 #'              country = c("Colombia"),
 #'              daterange_actual = c("2018-01-01T00:00:00Z", "2021-01-01T00:00:00Z"),
 #'              daterange_planned = c("2018-01-01T00:00:00Z", "2021-01-01T00:00:00Z")
-#' }
+#'  }
 #' 
 #' @export
 #'
