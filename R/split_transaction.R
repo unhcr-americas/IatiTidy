@@ -1,4 +1,4 @@
-#' implementers_split
+#' split_transaction
 #'
 #' Function to split activities by implementers.
 #' Thanks to https://github.com/akmiller01/IATI-Covid
@@ -10,7 +10,7 @@
 #' @export
 #'
 
-implementers_split <-  function(row){
+split_transaction <-  function(row){
   org_roles <-  as.character(row$participating_org_role)
   org_narratives <-  as.character(row$participating_org_narrative)
   org_types <-  as.character(row$participating_org_type)

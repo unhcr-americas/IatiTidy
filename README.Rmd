@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 # IatiTidy: An R Interface to International Aid Transparency Initiative Data Store <img src="man/figures/iatitidy.png" width="200" align="right" />
 
 
-This package wraps [IATI Datastore Query Builder](Wrapper to https://iatidatastore.iatistandard.org/querybuilder). For more info on the query builder, consult the dedicated [user guide](https://iatistandard.org/documents/10453/IATI_Datastore_Query_Builder_User_Guide.pdf). The IATI Datastore provides access to development and humanitarian data that complies with the most up-to-date rules of the [IATI Standard](https://iatistandard.org).
+This package wraps [IATI Datastore Query Builder](https://iatidatastore.iatistandard.org/querybuilder). For more info on the query builder, consult the dedicated [user guide](https://iatistandard.org/documents/10453/IATI_Datastore_Query_Builder_User_Guide.pdf). The IATI Datastore provides access to development and humanitarian data that complies with the most up-to-date rules of the [IATI Standard](https://iatistandard.org).
 
 ## What is IATI?
 
