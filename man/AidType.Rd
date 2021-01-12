@@ -24,4 +24,9 @@ AidType
 \description{
 See: http://www.oecd.org/dac/stats/dacandcrscodelists.htm
 }
+\examples{
+{
+head(AidType,10)
+}
+}
 \keyword{datasets}

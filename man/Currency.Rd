@@ -25,4 +25,9 @@ Currency
 ISO 4217 Currency used for all transactions and budgets
   External URL: http://www.iso.org/iso/home/standards/currency_codes.htm
 }
+\examples{
+{
+head(Currency,10)
+}
+}
 \keyword{datasets}

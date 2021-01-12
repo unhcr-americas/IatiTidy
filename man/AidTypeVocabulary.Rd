@@ -26,4 +26,9 @@ The AidTypeVocabulary codelist defines a range of external
 codelists which themselves provide codes and descriptions for aid type.
 This is a Non-Core codelist.
 }
+\examples{
+{
+head(AidTypeVocabulary,10)
+}
+}
 \keyword{datasets}

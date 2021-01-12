@@ -26,4 +26,9 @@ DAC/CRS distinction between ODA (official development assistance)
  and other types of resource flow.
    External URL: http://www.oecd.org/dac/stats/dacandcrscodelists.htm
 }
+\examples{
+{
+head(FlowType,10)
+}
+}
 \keyword{datasets}

@@ -40,4 +40,12 @@ Transaction Type -   This is a Core codelist.
 
 This is a Core codelist.
 }
+\examples{
+{
+head(TransactionType,10)
+}
+{
+head(TransactionType,10)
+}
+}
 \keyword{datasets}

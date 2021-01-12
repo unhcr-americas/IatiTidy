@@ -1,0 +1,77 @@
+title: IatiTidy
+url: https://unhcr-americas.github.io/IatiTidy/docs/
+template:
+  params:
+    bootswatch: yeti
+navbar:
+  title: IatiTidy
+  left:
+  - text: "Articles"
+    menu:
+     - text: IatiTidy
+       href: articles/IatiTidy.html
+  - text: News
+    href: news/index.html
+  - text: Reference
+    href: reference/index.html
+
+reference:
+  - title: Main API function
+    contents:
+      - get_FTS
+      - get_IATI_activity
+      - get_IATI_transaction
+  - title: Utilities to parse query output
+    contents:
+      - split_implementers
+      - split_sector
+  - title: Reference Activities
+    contents:
+      - ActivityDateType
+      - ActivityScope
+      - ActivityStatus
+      - DescriptionType
+  - title: Reference Aid
+    contents:
+      - AidType
+      - AidTypeCategory
+      - AidTypeVocabulary
+      - BudgetIdentifier
+  - title: Reference Financial
+    contents:
+      - FlowType
+      - BudgetIdentifierSector
+      - Currency
+      - EarmarkingCategory
+      - TransactionType
+  - title: Reference Humanitarian
+    contents:
+      - CashandVoucherModalities
+      - HumCluster
+      - HumanitarianScopeType
+      - HumanitarianScopeVocabulary
+  - title: Reference Geographic
+    contents:
+      - Country
+      - Region
+      - GeographicLocationClass
+      - GeographicLocationClass
+  - title: Reference Organisation
+    contents:
+      - IATIOrganisationIdentifier
+      - IndicatorMeasure
+      - IndicatorVocabulary
+      - OrganisationIdentifier
+      - OrganisationRegistrationAgency
+      - OrganisationRole
+      - OrganisationType
+  - title: Reference Results
+    contents:
+      - PolicyMarker
+      - ResultType
+  - title: Reference Sector
+    contents:
+      - Sector
+      - SectorVocabulary
+      - UNSDGGoals
+      - UNSDGTargets

@@ -24,4 +24,9 @@ ActivityStatus
 \description{
 Lifecycle status of the activity from pipeline to completion
 }
+\examples{
+{
+head(ActivityStatus,10)
+}
+}
 \keyword{datasets}

@@ -26,4 +26,9 @@ This codelists exists to group the Aid Type codelist into
 categories. It is not used as a codelist in its own right.
 External URL: http://www.oecd.org/dac/stats/dacandcrscodelists.htm
 }
+\examples{
+{
+head(AidTypeCategory,10)
+}
+}
 \keyword{datasets}

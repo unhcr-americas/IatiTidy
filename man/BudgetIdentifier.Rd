@@ -27,4 +27,9 @@ One of several possible Budget Identifier Vocabularies.
 As of version 2.03 this codelist has been deprecated.
   This is a Non-Core codelist.
 }
+\examples{
+{
+head(BudgetIdentifier,10)
+}
+}
 \keyword{datasets}

@@ -25,4 +25,9 @@ HumanitarianScopeType
 The Humanitarian Scope Type codelist defines codes for types of
 humanitarian events and actions.
 }
+\examples{
+{
+head(HumanitarianScopeType,10)
+}
+}
 \keyword{datasets}

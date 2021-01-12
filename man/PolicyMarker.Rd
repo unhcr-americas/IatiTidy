@@ -26,4 +26,9 @@ The Policy Marker codelist is derived from the policy markers
  declared by the WP-STAT. The codes themselves are created by IATI.
    External URL: http://www.oecd.org/dac/stats/dacandcrscodelists.htm
 }
+\examples{
+{
+head(PolicyMarker,10)
+}
+}
 \keyword{datasets}

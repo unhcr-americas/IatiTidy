@@ -45,4 +45,9 @@ The values from this codelist are used to identify the particular
  organisation you need to identify, you can make a request a
  new list is included in the register following the guidance
 }
+\examples{
+{
+head(OrganisationRegistrationAgency,10)
+}
+}
 \keyword{datasets}

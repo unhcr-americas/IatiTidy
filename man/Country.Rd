@@ -29,4 +29,9 @@ The Country codelist is generated from the ISO 3166-1 part
   IATI currently defines additional codes in the XA -XZ range.
     External URL: http://www.iso.org/iso/home/standards/country_codes.htm
 }
+\examples{
+{
+head(Country,10)
+}
+}
 \keyword{datasets}

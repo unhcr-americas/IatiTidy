@@ -32,10 +32,12 @@ Parsed content on activities from IATI-compliant datasets.
 Function to get activities endpoint from IATI-compliant dataset.
 }
 \examples{
+\dontrun{
 data <- get_IATI_activity(url = "https://iatidatastore.iatistandard.org/search/activity?q=",
                        sector_vocabulary = "sector_vocabulary:(10 1 9 7)"
              country = c("Colombia"),
              daterange_actual = c("2018-01-01T00:00:00Z", "2021-01-01T00:00:00Z"),
              daterange_planned = c("2018-01-01T00:00:00Z", "2021-01-01T00:00:00Z")
+}
 
 }

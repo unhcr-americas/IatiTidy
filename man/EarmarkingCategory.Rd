@@ -26,4 +26,9 @@ This codelist has been created by IATI and is derived from the
 Grand Bargain Earmarking Modality codelist.
 See: https://reliefweb.int/sites/reliefweb.int/files/resources/Grand_Bargain_final_22_May_FINAL-2.pdf
 }
+\examples{
+{
+head(EarmarkingCategory,10)
+}
+}
 \keyword{datasets}

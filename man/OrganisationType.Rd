@@ -24,4 +24,9 @@ OrganisationType
 \description{
 This is a Non-Core codelist
 }
+\examples{
+{
+head(OrganisationType,10)
+}
+}
 \keyword{datasets}

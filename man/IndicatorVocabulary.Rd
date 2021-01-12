@@ -26,4 +26,9 @@ The Indicator Vocabulary codelist defines a range of external
 codelists which themselves provide codes and descriptions for indicators,
 for example to specify results.
 }
+\examples{
+{
+head(IndicatorVocabulary,10)
+}
+}
 \keyword{datasets}

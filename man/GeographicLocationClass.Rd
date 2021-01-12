@@ -24,4 +24,9 @@ GeographicLocationClass
 \description{
 This is a Non-Core codelist.
 }
+\examples{
+{
+head(GeographicLocationClass,10)
+}
+}
 \keyword{datasets}

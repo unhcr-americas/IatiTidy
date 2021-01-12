@@ -25,4 +25,9 @@ Sector
 DAC 5 Digit Sector
   External URL: http://www.oecd.org/dac/stats/dacandcrscodelists.htm
 }
+\examples{
+{
+head(Sector,10)
+}
+}
 \keyword{datasets}

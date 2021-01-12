@@ -26,4 +26,9 @@ This codelists exists to group the Budget Identifier codelist
 into sectors. It is not used as a codelist in its own right.
   This is a Non-Core codelist.
 }
+\examples{
+{
+head(BudgetIdentifierSector,10)
+}
+}
 \keyword{datasets}

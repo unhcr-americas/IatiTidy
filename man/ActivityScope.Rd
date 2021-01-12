@@ -24,4 +24,9 @@ ActivityScope
 \description{
 Geographic scope of activity
 }
+\examples{
+{
+head(ActivityScope,10)
+}
+}
 \keyword{datasets}

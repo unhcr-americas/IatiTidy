@@ -27,4 +27,9 @@ As of 1.04 this list is no longer maintained.
    For general guidance about constructing Organisation Identifiers,
    please see http://iatistandard.org/organisation-identifiers/
 }
+\examples{
+{
+head(OrganisationIdentifier,10)
+}
+}
 \keyword{datasets}

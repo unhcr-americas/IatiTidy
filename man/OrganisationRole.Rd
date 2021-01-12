@@ -26,4 +26,9 @@ IATI codes for the role of an organisation within an activity.
  An organisation can play more than one role within an activity.
    This is a Core codelist.
 }
+\examples{
+{
+head(OrganisationRole,10)
+}
+}
 \keyword{datasets}

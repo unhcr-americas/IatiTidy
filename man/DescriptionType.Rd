@@ -24,4 +24,9 @@ DescriptionType
 \description{
 Activity decription types. (General, objectives, etc)
 }
+\examples{
+{
+head(DescriptionType,10)
+}
+}
 \keyword{datasets}

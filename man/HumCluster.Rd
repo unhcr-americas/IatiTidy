@@ -36,4 +36,9 @@ Global Clusters and Areas of Responsibility (AoR) were defined to enable more
    Both the Google Spreadsheet and CSV versions contain HXL hashtags.
      For more information, please visit http://vocabulary.unocha.org/
 }
+\examples{
+{
+head(HumCluster,10)
+}
+}
 \keyword{datasets}

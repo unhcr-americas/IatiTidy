@@ -28,4 +28,9 @@ There are many different business models and dates that can be used to describe
  adopts their own consistent approach that provides users with a meaningful
  indication of the lifespan of an activity.
 }
+\examples{
+{
+head(ActivityDateType,10)
+}
+}
 \keyword{datasets}

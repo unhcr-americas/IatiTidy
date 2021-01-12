@@ -26,4 +26,9 @@ A value from the top-level list of UN sustainable development
 goals (SDGs) (e.g. ‘1’)
   External URL: https://sustainabledevelopment.un.org/?menu=1300
 }
+\examples{
+{
+head(UNSDGGoals,10)
+}
+}
 \keyword{datasets}

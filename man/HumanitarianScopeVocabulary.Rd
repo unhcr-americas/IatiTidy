@@ -26,4 +26,9 @@ The Humanitarian Scope Vocabulary codelist defines a range of
 external codelists which themselves provide codes and descriptions for
 humanitarian events and actions.
 }
+\examples{
+{
+head(HumanitarianScopeVocabulary,10)
+}
+}
 \keyword{datasets}

@@ -28,4 +28,9 @@ Working Group. Definitions of the codes have been aligned with the
 CaLP Glossary:http://www.cashlearning.org/resources/glossary.
   This is a Non-Core codelist.
 }
+\examples{
+{
+head(CashandVoucherModalities,10)
+}
+}
 \keyword{datasets}

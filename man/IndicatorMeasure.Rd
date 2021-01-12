@@ -25,4 +25,9 @@ IndicatorMeasure
 To specify how an indicator is being measured.
 This includes qualitative and quantitative values.
 }
+\examples{
+{
+head(IndicatorMeasure,10)
+}
+}
 \keyword{datasets}

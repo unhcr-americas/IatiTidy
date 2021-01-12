@@ -36,4 +36,9 @@ This is a list of organisation identifiers that is maintained by
    For general guidance about constructing Organisation Identifiers, please see
     http://iatistandard.org/organisation-identifiers/
 }
+\examples{
+{
+head(IATIOrganisationIdentifier,10)
+}
+}
 \keyword{datasets}

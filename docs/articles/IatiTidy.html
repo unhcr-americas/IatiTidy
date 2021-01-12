@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Using IatiTidy • IatiTidy</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/yeti/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -37,23 +37,33 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
      
+    <span class="caret"></span>
   </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/IatiTidy.html">IatiTidy</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="../articles/IatiTidy.html">Get started</a>
+  <a href="../news/index.html">News</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+      </ul>
+<ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="https://github.com/unhcr-americas/IatiTidy/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -69,9 +79,9 @@
       <h1 data-toc-skip>Using IatiTidy</h1>
                         <h4 class="author">Vignette Author</h4>
             
-            <h4 class="date">2021-01-06</h4>
+            <h4 class="date">2021-01-12</h4>
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/unhcr-americas/IatiTidy/blob/master/vignettes/IatiTidy.Rmd"><code>vignettes/IatiTidy.Rmd</code></a></small>
       <div class="hidden name"><code>IatiTidy.Rmd</code></div>
 
     </div>
@@ -79,219 +89,412 @@
     
     
 <p>activities2 &lt;- read.csv(URLencode(url2), as.is=T,na.strings="")</p>
-<p>Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The <code>html_vignette</code> output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The <code>html_vignette</code> format:</p>
-<ul>
-<li>Never uses retina figures</li>
-<li>Has a smaller default figure size</li>
-<li>Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style</li>
-</ul>
-<div id="vignette-info" class="section level2">
-<h2 class="hasAnchor">
-<a href="#vignette-info" class="anchor"></a>Vignette Info</h2>
-<p>Note the various macros within the <code>vignette</code> section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the <code>title</code> field and the <code>\VignetteIndexEntry</code> to match the title of your vignette.</p>
-</div>
-<div id="styles" class="section level2">
-<h2 class="hasAnchor">
-<a href="#styles" class="anchor"></a>Styles</h2>
-<p>The <code>html_vignette</code> template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:</p>
-<pre><code>output: 
-  rmarkdown::html_vignette:
-    css: mystyles.css</code></pre>
-</div>
-<div id="figures" class="section level2">
-<h2 class="hasAnchor">
-<a href="#figures" class="anchor"></a>Figures</h2>
-<p>The figure sizes have been customised so that you can easily put two images side-by-side.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ftsflow2020</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_FTS.html">get_FTS</a></span><span class="op">(</span>url <span class="op">=</span> <span class="st">"https://api.hpc.tools"</span>,
+                              ext <span class="op">=</span> <span class="st">"/v1/public/fts/flow?"</span>,
+                              year <span class="op">=</span> <span class="st">"year=2020"</span><span class="op">)</span>
+<span class="co">#&gt; successful API Query</span>
+<span class="va">ftsflow2019</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_FTS.html">get_FTS</a></span><span class="op">(</span>url <span class="op">=</span> <span class="st">"https://api.hpc.tools"</span>,
+                              ext <span class="op">=</span> <span class="st">"/v1/public/fts/flow?"</span>,
+                              year <span class="op">=</span> <span class="st">"year=2019"</span><span class="op">)</span>
+<span class="co">#&gt; successful API Query</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fl">10</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
-<p><img src="IatiTidy_files/figure-html/unnamed-chunk-1-1.png" width="700"><img src="IatiTidy_files/figure-html/unnamed-chunk-1-2.png" width="700"></p>
-<p>You can enable figure captions by <code>fig_caption: yes</code> in YAML:</p>
-<pre><code>output:
-  rmarkdown::html_vignette:
-    fig_caption: yes</code></pre>
-<p>Then you can use the chunk option <code>fig.cap = "Your figure caption."</code> in <strong>knitr</strong>.</p>
-</div>
-<div id="more-examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#more-examples" class="anchor"></a>More Examples</h2>
-<p>You can write math expressions, e.g. <span class="math inline">\(Y = X\beta + \epsilon\)</span>, footnotes<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, and tables, e.g. using <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code>.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">ftsflow2020</span><span class="op">)</span>
+<span class="co">#&gt;  [1] "id"                         "amountUSD"                 </span>
+<span class="co">#&gt;  [3] "budgetYear"                 "childFlowIds"              </span>
+<span class="co">#&gt;  [5] "contributionType"           "createdAt"                 </span>
+<span class="co">#&gt;  [7] "date"                       "decisionDate"              </span>
+<span class="co">#&gt;  [9] "description"                "grandBargainEarmarkingType"</span>
+<span class="co">#&gt; [11] "exchangeRate"               "firstReportedDate"         </span>
+<span class="co">#&gt; [13] "flowType"                   "keywords"                  </span>
+<span class="co">#&gt; [15] "newMoney"                   "originalAmount"            </span>
+<span class="co">#&gt; [17] "originalCurrency"           "method"                    </span>
+<span class="co">#&gt; [19] "parentFlowId"               "status"                    </span>
+<span class="co">#&gt; [21] "updatedAt"                  "versionId"                 </span>
+<span class="co">#&gt; [23] "sourceObjects"              "destinationObjects"        </span>
+<span class="co">#&gt; [25] "boundary"                   "onBoundary"                </span>
+<span class="co">#&gt; [27] "reportDetails"              "refCode"</span></code></pre></div>
 <table class="table">
+<colgroup>
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="11%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="15%">
+<col width="62%">
+<col width="0%">
+<col width="0%">
+<col width="2%">
+<col width="0%">
+</colgroup>
 <thead><tr class="header">
 <th align="left"></th>
-<th align="right">mpg</th>
-<th align="right">cyl</th>
-<th align="right">disp</th>
-<th align="right">hp</th>
-<th align="right">drat</th>
-<th align="right">wt</th>
-<th align="right">qsec</th>
-<th align="right">vs</th>
-<th align="right">am</th>
-<th align="right">gear</th>
-<th align="right">carb</th>
+<th align="left">id</th>
+<th align="left">amountUSD</th>
+<th align="left">budgetYear</th>
+<th align="left">childFlowIds</th>
+<th align="left">contributionType</th>
+<th align="left">createdAt</th>
+<th align="left">date</th>
+<th align="left">decisionDate</th>
+<th align="left">description</th>
+<th align="left">grandBargainEarmarkingType</th>
+<th align="left">exchangeRate</th>
+<th align="left">firstReportedDate</th>
+<th align="left">flowType</th>
+<th align="left">keywords</th>
+<th align="left">newMoney</th>
+<th align="left">originalAmount</th>
+<th align="left">originalCurrency</th>
+<th align="left">method</th>
+<th align="left">parentFlowId</th>
+<th align="left">status</th>
+<th align="left">updatedAt</th>
+<th align="left">versionId</th>
+<th align="left">sourceObjects</th>
+<th align="left">destinationObjects</th>
+<th align="left">boundary</th>
+<th align="left">onBoundary</th>
+<th align="left">reportDetails</th>
+<th align="left">refCode</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Mazda RX4</td>
-<td align="right">21.0</td>
-<td align="right">6</td>
-<td align="right">160.0</td>
-<td align="right">110</td>
-<td align="right">3.90</td>
-<td align="right">2.620</td>
-<td align="right">16.46</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">4</td>
-<td align="right">4</td>
+<td align="left">init</td>
+<td align="left">124682</td>
+<td align="left">6988564</td>
+<td align="left">2014</td>
+<td align="left">NULL</td>
+<td align="left">financial</td>
+<td align="left">2019-06-22T04:25:33.583Z</td>
+<td align="left">2014-10-02T00:00:00Z</td>
+<td align="left">2014-10-02T00:00:00Z</td>
+<td align="left">Food security (2014.0972.1)</td>
+<td align="left">earmarked</td>
+<td align="left">0.787</td>
+<td align="left">2014-10-03T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">Food , Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">5500000</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2019-06-24T08:24:25.205Z</td>
+<td align="left">2</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 34 , 2014 , single</td>
+<td align="left">Organization , 2987 , Deutsche Gesellschaft fÃ¼r Internationale Zusammenarbeit, single , Private organization/foundation , International organization/foundation/individual , GlobalCluster , 6 , Food Security , single , Location , 38 , Cambodia , single , UsageYear , 34 , 2014 , shared , UsageYear , 37 , 2015 , shared , UsageYear , 36 , 2016 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 41 , 2020 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2019-06-21T00:00:00.000Z</td>
+<td align="left">2014.0972.1</td>
 </tr>
 <tr class="even">
-<td align="left">Mazda RX4 Wag</td>
-<td align="right">21.0</td>
-<td align="right">6</td>
-<td align="right">160.0</td>
-<td align="right">110</td>
-<td align="right">3.90</td>
-<td align="right">2.875</td>
-<td align="right">17.02</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">4</td>
-<td align="right">4</td>
+<td align="left">X</td>
+<td align="left">127925</td>
+<td align="left">10254605</td>
+<td align="left">2015</td>
+<td align="left">NULL</td>
+<td align="left">financial</td>
+<td align="left">2019-06-22T04:25:34.256Z</td>
+<td align="left">2015-04-15T00:00:00Z</td>
+<td align="left">2015-04-15T00:00:00Z</td>
+<td align="left">(Shan State) The aim of the plan is to improve the food situation of farmers population in Shan State. The plan concentrates his activities upon mountain villages and communities close to the border in the Shan State in which many households straightened on subsistence agriculture are food-threatened. (2015.1800.0)</td>
+<td align="left">earmarked</td>
+<td align="left">0.923</td>
+<td align="left">2015-04-25T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">9465000</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2019-06-24T08:23:36.527Z</td>
+<td align="left">5</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 37 , 2015 , single</td>
+<td align="left">Organization , 2987 , Deutsche Gesellschaft fÃ¼r Internationale Zusammenarbeit, single , Private organization/foundation , International organization/foundation/individual , GlobalCluster , 26480 , Coordination and support services , shared , GlobalCluster , 4 , Emergency Shelter and NFI , shared , GlobalCluster , 8 , Logistics , shared , Location , 153 , Myanmar , single , UsageYear , 42 , 2021 , shared , UsageYear , 41 , 2020 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 36 , 2016 , shared , UsageYear , 37 , 2015 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2019-06-21T00:00:00.000Z</td>
+<td align="left">2015.1800.0</td>
 </tr>
 <tr class="odd">
-<td align="left">Datsun 710</td>
-<td align="right">22.8</td>
-<td align="right">4</td>
-<td align="right">108.0</td>
-<td align="right">93</td>
-<td align="right">3.85</td>
-<td align="right">2.320</td>
-<td align="right">18.61</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">4</td>
-<td align="right">1</td>
+<td align="left">X.1</td>
+<td align="left">138397</td>
+<td align="left">0</td>
+<td align="left">2016</td>
+<td align="left">190286, 190287, 190288, 201781, 201782</td>
+<td align="left">financial</td>
+<td align="left">2018-11-18T04:25:27.964Z</td>
+<td align="left">2018-05-17T00:00:00Z</td>
+<td align="left">2018-05-17T00:00:00Z</td>
+<td align="left">Measures regarding help, protection, prevention and cooperation in Israel and the Occupied Palestinian Territories.</td>
+<td align="left">NULL</td>
+<td align="left">0.915</td>
+<td align="left">2016-02-26T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">0</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2020-09-14T12:45:39.348Z</td>
+<td align="left">4</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 40 , 2019 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 36 , 2016 , shared , UsageYear , 41 , 2020 , shared</td>
+<td align="left">Organization , 2967 , International Committee of the Red Cross, single , Red Cross/Red Crescent , International Society , Location , 171 , occupied Palestinian territory , single , UsageYear , 39 , 2018 , shared , UsageYear , 41 , 2020 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 36 , 2016 , shared , UsageYear , 38 , 2017 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2018-11-16T00:00:00.000Z</td>
+<td align="left">AA-S05 321.50 PSE 01/16</td>
 </tr>
 <tr class="even">
-<td align="left">Hornet 4 Drive</td>
-<td align="right">21.4</td>
-<td align="right">6</td>
-<td align="right">258.0</td>
-<td align="right">110</td>
-<td align="right">3.08</td>
-<td align="right">3.215</td>
-<td align="right">19.44</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">1</td>
+<td align="left">X.2</td>
+<td align="left">138806</td>
+<td align="left">0</td>
+<td align="left">2016</td>
+<td align="left">198589, 198590, 198591, 198592, 198593</td>
+<td align="left">financial</td>
+<td align="left">2018-09-25T04:26:15.539Z</td>
+<td align="left">2016-03-02T00:00:00Z</td>
+<td align="left">2016-03-02T00:00:00Z</td>
+<td align="left">Help, protection, prevention and cooperation activities in Somalia 2016 - 2020</td>
+<td align="left">NULL</td>
+<td align="left">0.912</td>
+<td align="left">2016-03-05T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">El nino , Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">0</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2019-11-01T13:31:47.077Z</td>
+<td align="left">4</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 41 , 2020 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 36 , 2016 , shared</td>
+<td align="left">Organization , 2967 , International Committee of the Red Cross, single , Red Cross/Red Crescent , International Society , Location , 206 , Somalia , single , UsageYear , 36 , 2016 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 41 , 2020 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2018-09-24T00:00:00.000Z</td>
+<td align="left">AA-S05 321.50 SOM 03/16</td>
 </tr>
 <tr class="odd">
-<td align="left">Hornet Sportabout</td>
-<td align="right">18.7</td>
-<td align="right">8</td>
-<td align="right">360.0</td>
-<td align="right">175</td>
-<td align="right">3.15</td>
-<td align="right">3.440</td>
-<td align="right">17.02</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">2</td>
+<td align="left">X.3</td>
+<td align="left">139803</td>
+<td align="left">0</td>
+<td align="left">2016</td>
+<td align="left">202623, 202624, 202625, 202626, 202627</td>
+<td align="left">financial</td>
+<td align="left">2019-12-05T04:25:50.994Z</td>
+<td align="left">2016-03-24T00:00:00Z</td>
+<td align="left">2016-03-24T00:00:00Z</td>
+<td align="left">The aim of the plan is: Well-chosen admission municipalities put increasingly an improved social infrastructure for Binnenvertriebene (IDPs) and the resident population in Ukraine. The plan is active in three administrative districts (Oblasten) Charkiw, Dnipropetrowsk and Saporischschja. The measures are made up of three spheres of activity. (2016.1800.8) BMZ - 2016 - 2021</td>
+<td align="left">earmarked</td>
+<td align="left">0.912</td>
+<td align="left">2016-03-31T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">0</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2019-12-09T12:08:53.196Z</td>
+<td align="left">3</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 36 , 2016 , single</td>
+<td align="left">Organization , 2987 , Deutsche Gesellschaft fÃ¼r Internationale Zusammenarbeit, single , Private organization/foundation , International organization/foundation/individual , GlobalCluster , 2 , Early Recovery , single , Location , 234 , Ukraine , single , UsageYear , 36 , 2016 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 41 , 2020 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2019-12-04T00:00:00.000Z</td>
+<td align="left">2016.1800.8</td>
 </tr>
 <tr class="even">
-<td align="left">Valiant</td>
-<td align="right">18.1</td>
-<td align="right">6</td>
-<td align="right">225.0</td>
-<td align="right">105</td>
-<td align="right">2.76</td>
-<td align="right">3.460</td>
-<td align="right">20.22</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">1</td>
+<td align="left">X.4</td>
+<td align="left">141033</td>
+<td align="left">2407701</td>
+<td align="left">2016</td>
+<td align="left">NULL</td>
+<td align="left">financial</td>
+<td align="left">2020-07-03T02:25:14.882Z</td>
+<td align="left">2016-04-22T00:00:00Z</td>
+<td align="left">2016-04-22T00:00:00Z</td>
+<td align="left">Strengthening of the Resilienz of the villages affected by the flood disaster by the renovation and the reconstruction from WaSH-and base infrastructure with concurrent construction and strengthening of village structures and resources in the areas of Hygiene and DRR. (2016.1808.1)</td>
+<td align="left">NULL</td>
+<td align="left">0.883</td>
+<td align="left">2016-04-23T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">2126000</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2020-11-10T13:09:48.523Z</td>
+<td align="left">2</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 36 , 2016 , single</td>
+<td align="left">Organization , 2513 , Arche Nova E.V. - Initiative for People in Need, single , NGO , International , Location , 153 , Myanmar , single , UsageYear , 36 , 2016 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 41 , 2020 , shared , UsageYear , 42 , 2021 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2020-10-06T00:00:00.000Z</td>
+<td align="left">2016.1808.1</td>
 </tr>
 <tr class="odd">
-<td align="left">Duster 360</td>
-<td align="right">14.3</td>
-<td align="right">8</td>
-<td align="right">360.0</td>
-<td align="right">245</td>
-<td align="right">3.21</td>
-<td align="right">3.570</td>
-<td align="right">15.84</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">4</td>
+<td align="left">X.5</td>
+<td align="left">141057</td>
+<td align="left">3340883</td>
+<td align="left">2016</td>
+<td align="left">NULL</td>
+<td align="left">financial</td>
+<td align="left">2020-11-18T02:25:35.117Z</td>
+<td align="left">2016-04-22T00:00:00Z</td>
+<td align="left">2016-04-22T00:00:00Z</td>
+<td align="left">The project is carried out under use of mobile technology (i. e. WhatsApp and Viber) to communicate with the mothers before and after the exemption. This technology has become in Syria during the topical war more and more the main communicative device. The medical staff will also use this technology to co-ordinate with the project intervention FIHD. In addition, a small Internet cafÃ© is furnished for the patients, so that they can use waiting periods sensibly for the information retrieval. (2016.1821.4)</td>
+<td align="left">NULL</td>
+<td align="left">0.883</td>
+<td align="left">2016-04-23T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">2950000</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2020-11-18T11:38:45.301Z</td>
+<td align="left">2</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 36 , 2016 , single</td>
+<td align="left">Organization , 342 , Vision Hope International , single , NGO , International , Location , 218 , Syrian Arab Republic , single , Emergency , 600 , Syrian Arab Republic - Civil Unrest (from 2012), single , UsageYear , 36 , 2016 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 41 , 2020 , shared , UsageYear , 42 , 2021 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2020-11-17T00:00:00.000Z</td>
+<td align="left">2016.1821.4</td>
 </tr>
 <tr class="even">
-<td align="left">Merc 240D</td>
-<td align="right">24.4</td>
-<td align="right">4</td>
-<td align="right">146.7</td>
-<td align="right">62</td>
-<td align="right">3.69</td>
-<td align="right">3.190</td>
-<td align="right">20.00</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">4</td>
-<td align="right">2</td>
+<td align="left">X.6</td>
+<td align="left">142688</td>
+<td align="left">12131519</td>
+<td align="left">2016</td>
+<td align="left">NULL</td>
+<td align="left">financial</td>
+<td align="left">2019-07-27T04:25:36.112Z</td>
+<td align="left">2016-05-27T00:00:00Z</td>
+<td align="left">2016-05-27T00:00:00Z</td>
+<td align="left">The plan makes a direct contribution to the poverty fight by the increase of the Resilienz of vulnerabler target groups. An improved disaster risk management and a protection improved with it of the production bases (which are needed to the generation by income and to the food production) as well as the support of all dimensions of food security contribute to the reduction of poverty. (2016.1849.5)</td>
+<td align="left">NULL</td>
+<td align="left">0.882</td>
+<td align="left">2016-05-28T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">10700000</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2020-11-13T16:47:20.553Z</td>
+<td align="left">2</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 36 , 2016 , single</td>
+<td align="left">Organization , 2987 , Deutsche Gesellschaft fÃ¼r Internationale Zusammenarbeit, single , Private organization/foundation , International organization/foundation/individual , Location , 44 , Chad , single , UsageYear , 36 , 2016 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 41 , 2020 , shared , UsageYear , 42 , 2021 , shared , UsageYear , 43 , 2022 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2020-09-24T00:00:00.000Z</td>
+<td align="left">2016.1849.5</td>
 </tr>
 <tr class="odd">
-<td align="left">Merc 230</td>
-<td align="right">22.8</td>
-<td align="right">4</td>
-<td align="right">140.8</td>
-<td align="right">95</td>
-<td align="right">3.92</td>
-<td align="right">3.150</td>
-<td align="right">22.90</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">4</td>
-<td align="right">2</td>
+<td align="left">X.7</td>
+<td align="left">144388</td>
+<td align="left">3511706</td>
+<td align="left">2016</td>
+<td align="left">NULL</td>
+<td align="left">financial</td>
+<td align="left">2019-07-25T04:25:27.409Z</td>
+<td align="left">2016-06-24T00:00:00Z</td>
+<td align="left">2016-06-24T00:00:00Z</td>
+<td align="left">Aim of the plan: Enlargement of the capacity of the limited and on the regional level very specific ground water structure by traffic jam thresholds and conformist water withdrawal by innovative, solar-pursued wells / pumps combination. Use of the enlarged and with it lighter to available water reserves than additional drinking water and to the support of agricultural and garden-architectural projects in the region, as for example of the GIZ and Cooperation Suisse. (2016.1832.1)</td>
+<td align="left">unearmarked</td>
+<td align="left">0.897</td>
+<td align="left">2016-06-25T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">3150000</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2020-11-13T16:52:10.968Z</td>
+<td align="left">5</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 36 , 2016 , single</td>
+<td align="left">Organization , 4534 , Help - Hilfe zur Selbsthilfe e.V., single , NGO , International , Location , 44 , Chad , single , UsageYear , 39 , 2018 , shared , UsageYear , 36 , 2016 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 41 , 2020 , shared , UsageYear , 42 , 2021 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2019-07-31T00:00:00.000Z</td>
+<td align="left">2016.1832.1</td>
 </tr>
 <tr class="even">
-<td align="left">Merc 280</td>
-<td align="right">19.2</td>
-<td align="right">6</td>
-<td align="right">167.6</td>
-<td align="right">123</td>
-<td align="right">3.92</td>
-<td align="right">3.440</td>
-<td align="right">18.30</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">4</td>
-<td align="right">4</td>
+<td align="left">X.8</td>
+<td align="left">144417</td>
+<td align="left">0</td>
+<td align="left">2016</td>
+<td align="left">204171, 204172, 204173, 204174, 204175</td>
+<td align="left">financial</td>
+<td align="left">2016-06-28T11:50:00Z</td>
+<td align="left">2016-06-24T00:00:00Z</td>
+<td align="left">2016-06-24T00:00:00Z</td>
+<td align="left">Financial contribution to the WFP innovation center (AA-S05 321.50 ALL 24/16)</td>
+<td align="left">unearmarked</td>
+<td align="left">0.897</td>
+<td align="left">2016-06-28T00:00:00Z</td>
+<td align="left">Parked</td>
+<td align="left">Multiyear</td>
+<td align="left">TRUE</td>
+<td align="left">0</td>
+<td align="left">EUR</td>
+<td align="left">Traditional aid</td>
+<td align="left">NULL</td>
+<td align="left">commitment</td>
+<td align="left">2020-07-22T12:26:31.108Z</td>
+<td align="left">1</td>
+<td align="left">Organization , 4306 , Germany, Government of, single , Government , National government , Location , 83 , Germany , single , UsageYear , 41 , 2020 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 36 , 2016 , shared</td>
+<td align="left">Organization , 3049 , World Food Programme, single , UN agency , UsageYear , 41 , 2020 , shared , UsageYear , 40 , 2019 , shared , UsageYear , 39 , 2018 , shared , UsageYear , 38 , 2017 , shared , UsageYear , 36 , 2016 , shared</td>
+<td align="left">incoming</td>
+<td align="left">shared</td>
+<td align="left">Primary , Germany, Government of , From EDRIS , 2016-06-28T00:00:00.000Z</td>
+<td align="left">AA-S05 321.50 ALL 24/16, [EDRIS:77318]</td>
 </tr>
 </tbody>
 </table>
-<p>Also a quote using <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>:</p>
-<blockquote>
-<p>“He who gives up [code] safety for [code] speed deserves neither.” (<a href="https://twitter.com/hadleywickham/status/504368538874703872">via</a>)</p>
-</blockquote>
 </div>
-<div class="footnotes">
-<hr>
-<ol>
-<li id="fn1"><p>A footnote here.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
-  </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
+      </div>
 
 </div>
 

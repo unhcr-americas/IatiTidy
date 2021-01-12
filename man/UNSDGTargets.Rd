@@ -26,4 +26,9 @@ A value from the second-level list of UN sustainable development
 goals (SDGs) (e.g. ‘1.1’)
   External URL: https://unstats.un.org/sdgs/indicators/indicators-list/
 }
+\examples{
+{
+head(UNSDGTargets,10)
+}
+}
 \keyword{datasets}

@@ -24,4 +24,9 @@ ResultType
 \description{
 This is a Non-Core codelist.
 }
+\examples{
+{
+head(ResultType,10)
+}
+}
 \keyword{datasets}

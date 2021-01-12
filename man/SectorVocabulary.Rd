@@ -24,4 +24,9 @@ SectorVocabulary
 \description{
 This is a Non-Core codelist.
 }
+\examples{
+{
+head(SectorVocabulary,10)
+}
+}
 \keyword{datasets}

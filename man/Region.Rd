@@ -24,4 +24,9 @@ Region
 \description{
 External URL: http://www.oecd.org/dac/stats/dacandcrscodelists.htm
 }
+\examples{
+{
+head(Region,10)
+}
+}
 \keyword{datasets}

@@ -14,6 +14,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(ActivityDateType,10)
+#'}
 "ActivityDateType"
 
 
@@ -29,6 +33,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(ActivityScope,10)
+#'}
   "ActivityScope"
 
 
@@ -44,6 +52,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(ActivityStatus,10)
+#'}
   "ActivityStatus"
 
 
@@ -59,6 +71,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(AidType,10)
+#'}
   "AidType"
 
 #' @title AidTypeCategory
@@ -75,6 +91,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(AidTypeCategory,10)
+#'}
   "AidTypeCategory"
 
 #' @title AidTypeVocabulary
@@ -91,6 +111,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(AidTypeVocabulary,10)
+#'}
   "AidTypeVocabulary"
 
 
@@ -109,6 +133,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(BudgetIdentifier,10)
+#'}
   "BudgetIdentifier"
 
 
@@ -126,6 +154,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(BudgetIdentifierSector,10)
+#'}
   "BudgetIdentifierSector"
 
 #' @title SectorCategory
@@ -141,6 +173,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(SectorCategory,10)
+#'}
   "SectorCategory"
 
 #' @title Sector
@@ -156,6 +192,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(Sector,10)
+#'}
   "Sector"
 
 
@@ -175,6 +215,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(CashandVoucherModalities,10)
+#'}
   "CashandVoucherModalities"
 
 
@@ -195,6 +239,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(Country,10)
+#'}
   "Country"
 
 #' @title Region
@@ -209,6 +257,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(Region,10)
+#'}
   "Region"
 
 
@@ -225,6 +277,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(Currency,10)
+#'}
   "Currency"
 
 #' @title DescriptionType
@@ -239,6 +295,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(DescriptionType,10)
+#'}
   "DescriptionType"
 
 #' @title EarmarkingCategory
@@ -255,6 +315,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(EarmarkingCategory,10)
+#'}
   "EarmarkingCategory"
 
 
@@ -272,6 +336,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(FlowType,10)
+#'}
   "FlowType"
 
 
@@ -287,6 +355,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(GeographicLocationClass,10)
+#'}
   "GeographicLocationClass"
 
 
@@ -303,6 +375,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(HumanitarianScopeType,10)
+#'}
   "HumanitarianScopeType"
 
 
@@ -320,6 +396,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(HumanitarianScopeVocabulary,10)
+#'}
   "HumanitarianScopeVocabulary"
 
 
@@ -347,6 +427,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(IATIOrganisationIdentifier,10)
+#'}
   "IATIOrganisationIdentifier"
 
 
@@ -363,6 +447,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(IndicatorMeasure,10)
+#'}
   "IndicatorMeasure"
 
 
@@ -380,6 +468,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(IndicatorVocabulary,10)
+#'}
   "IndicatorVocabulary"
 
 
@@ -398,6 +490,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(OrganisationIdentifier,10)
+#'}
   "OrganisationIdentifier"
 
 
@@ -435,6 +531,10 @@
 #'   \item{\code{public-database}}{logical COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(OrganisationRegistrationAgency,10)
+#'}
   "OrganisationRegistrationAgency"
 
   
@@ -452,6 +552,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION} 
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(OrganisationRole,10)
+#'}
   "OrganisationRole"  
   
 #' @title OrganisationType
@@ -466,6 +570,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION} 
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(OrganisationType,10)
+#'}
   "OrganisationType"
 
 #' @title PolicyMarker
@@ -482,6 +590,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(PolicyMarker,10)
+#'}
   "PolicyMarker"
 
 
@@ -499,6 +611,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(UNSDGGoals,10)
+#'}
   "UNSDGGoals"
 
 
@@ -516,6 +632,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(UNSDGTargets,10)
+#'}
   "UNSDGTargets"
 
 
@@ -531,6 +651,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(TransactionType,10)
+#'}
   "TransactionType"
 
 
@@ -546,6 +670,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(SectorVocabulary,10)
+#'}
   "SectorVocabulary"
 
 
@@ -573,6 +701,10 @@
 #'   \item{\code{Notes}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(HumCluster,10)
+#'}
   "HumCluster"
 
 
@@ -588,6 +720,10 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(ResultType,10)
+#'}
   "ResultType"
 
 
@@ -603,5 +739,9 @@
 #'   \item{\code{status}}{character COLUMN_DESCRIPTION}
 #'}
 #' @source \url{https://iatistandard.org/en/iati-standard/203/codelists/}
+#' @examples
+#' {
+#' head(TransactionType,10)
+#'}
   "TransactionType"
 
