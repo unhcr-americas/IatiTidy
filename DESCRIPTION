@@ -9,7 +9,8 @@ Description: Wrapper for IATI DataStore: https://iatidatastore.iatistandard.org/
 URL: https://unhcr-americas.github.io/IatiTidy/docs/
 BugReports: https://github.com/unhcr-americas/IatiTidy/issues
 Depends:
-    utils
+    utils,
+    tidyverse
 Imports:
     ggplot2,
     httr,

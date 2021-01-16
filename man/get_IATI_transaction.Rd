@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_IATI_transaction.R
 \name{get_IATI_transaction}
 \alias{get_IATI_transaction}
-\title{get_IATI_transaction}
+\title{Pull Transaction data from IATI datastore API}
 \usage{
 get_IATI_transaction(
   url = "https://iatidatastore.iatistandard.org/search/transaction?q=",
@@ -38,6 +38,6 @@ data <- get_IATI_transaction(url = "https://iatidatastore.iatistandard.org/searc
              country = c("Colombia"),
              daterange_actual = c("2018-01-01T00:00:00Z", "2021-01-01T00:00:00Z"),
              daterange_planned = c("2018-01-01T00:00:00Z", "2021-01-01T00:00:00Z")
-}
+ }
 
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_IATI_activity.R
 \name{get_IATI_activity}
 \alias{get_IATI_activity}
-\title{get_IATI_activity}
+\title{Pull Activities data from IATI datastore API}
 \usage{
 get_IATI_activity(
   url = "https://iatidatastore.iatistandard.org/search/activity?q=",
@@ -32,7 +32,7 @@ Parsed content on activities from IATI-compliant datasets.
 Function to get activities endpoint from IATI-compliant dataset.
 }
 \examples{
-\dontrun{
+ \dontrun{
 data <- get_IATI_activity(url = "https://iatidatastore.iatistandard.org/search/activity?q=",
                        sector_vocabulary = "sector_vocabulary:(10 1 9 7)"
              country = c("Colombia"),

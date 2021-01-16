@@ -22,35 +22,150 @@ knitr::opts_chunk$set(
 )
 
 library(IatiTidy)
+library(unhcRstyle)
+library(tidyverse)
 ```
 
 
 
 
-First we can pull data from the API with the `get_FTS` function:
+First we can pull data from the API with the `get_FTS` function. here we pull data for the last 3 years.
+
+
+```{r message=FALSE, warning=FALSE, cache=TRUE}
+data <- get_FTS(boundary = "year=2018,2019,2020")
+```
+
+The result of the query is a list with multiple outputs - We can look first at destination
+
+## Destination
+
+First we subset the output on Countries in South America
 
 ```{r message=FALSE, warning=FALSE}
-ftsflow2020 <- get_FTS(url = "https://api.hpc.tools",
-                    ext = "/v1/public/fts/flow?",
-                    boundary = "year=2019",
-                    limit = "&limit=1000")
-ftsflow2019 <- get_FTS(url = "https://api.hpc.tools",
-                    ext = "/v1/public/fts/flow?",
-                    boundary = "year=2020",
-                    limit = "&limit=1000")
+South_America <- c("Argentina", "Bolivia, Plurinational State of" , "Brazil", "Chile" , "Colombia" ,
+  "Ecuador" , "Falkland Islands (Malvinas)" , "Guyana" , "Paraguay" , "Peru" ,
+  "Suriname", "Uruguay"  , "Venezuela, Bolivarian Republic of")
+
+
+## list of flowid linked to South America
+
+flowidsouthamerica <- as.character(data$flows.destination[data$flows.destination$name %in% South_America, c("flowid") ])
+
+#Now subset the resulting
+flow2SoutAhmerica <- data$flows.destination[data$flows.destination$flowid %in% flowidsouthamerica,  ]
+
+
+
 ```
-Let's look at the structure of the output
 
-```{r message=FALSE, warning=FALSE}
-names(ftsflow2020)
-```
-
-
-and the content:
+let's look now at some tabulation  - first check by flow-type
 
 ```{r, echo=FALSE, results='asis'}
-knitr::kable(head(ftsflow2020, 10))
+#knitr::kable(head(ftsflow2020, 10))
+
+year <- as.data.frame(table(flow2SoutAhmerica[ flow2SoutAhmerica$type == "UsageYear", c("name")],
+                                      flow2SoutAhmerica[ flow2SoutAhmerica$type == "UsageYear", c("status")],
+                                      useNA = "ifany"))
+ggplot(year) +
+ aes(x = Var1, fill = Var2, weight = Freq) +
+ geom_bar() +
+ scale_fill_viridis_d(option = "plasma") +
+ labs(x = "Year", y = "# of Flow", 
+      title = "Flow per year and type in South America", 
+      caption = "Based on FTS Data", 
+      fill = "Flow Type") +
+ unhcr_theme()+
+ theme(legend.position = "top") 
+
+```
+Let's filter only on the paid type in 2020
+
+```{r, echo=FALSE, results='asis'}
+#knitr::kable(head(ftsflow2020, 10))
+
+dataplot <- flow2SoutAhmerica %>%
+  ## Filter flow id that were paid in 2020  
+  filter(flowid %in% as.character(flow2SoutAhmerica[flow2SoutAhmerica$name %in% c("2020"), c("flowid") ])) %>% 
+  # Also to avoid double count, we need to filter out the flows with Children   
+  filter(status %in% "paid") %>%
+  # Also to avoid double count, we need to filter out the flows with Children
+  filter(haschild %in% "nochild") %>%
+  # Also to avoid double count, we need to filter only rows representing countries
+  filter(type %in% "Location") %>%
+  select(name, amountUSD) %>%
+  group_by(name) %>%
+  summarise(amountUSD = sum(amountUSD))%>%
+  # Redefine the levels of the `relig` factor variable
+  mutate(name = fct_reorder(name, amountUSD))  
+
+#levels(dataplot$name)
+
+ggplot(dataplot ) +
+  aes(x = fct_reorder(name, amountUSD),  weight = amountUSD) +
+  geom_bar(fill = unhcr_blue) +
+ # facet_wrap(vars(method)) +
+  scale_fill_brewer(palette = "Accent") +
+  labs(x = "Country", y = "Amount in USD", 
+       title = "Total Amount per Country", 
+       fill = "Delivery Method") +
+  unhcr_theme()+
+ # theme_minimal() +
+  theme(legend.position = "top") +
+  coord_flip()+ 
+  scale_y_continuous(labels = format_si())
+
+
 ```
 
 
+```{r, echo=FALSE, results='asis'}
+#knitr::kable(head(ftsflow2020, 10))
+
+
+dataplot <- flow2SoutAhmerica %>%
+ ## Filter flow id that were paid in 2020  
+ filter(flowid %in% as.character(flow2SoutAhmerica[flow2SoutAhmerica$name %in% c("2020"), c("flowid") ])) %>% 
+ # Also to avoid double count, we need to filter out the flows with Children   
+ filter(status %in% "paid") %>%
+ # Also to avoid double count, we need to filter out the flows with Children
+ filter(haschild %in% "nochild") %>%
+ # Also to avoid double count, we need to filter only rows representing countries
+ filter(type %in% "Location") %>%
+ select(name,  method, amountUSD) %>%
+ group_by(name,  method) %>%
+ summarise(amountUSD = sum(amountUSD))%>%
+ # Redefine the levels of the `relig` factor variable
+ mutate(name = fct_reorder(name, amountUSD))  
+
+levels(dataplot$name)
+
+ ggplot(dataplot ) +
+ aes(x = fct_reorder(name, amountUSD),  weight = amountUSD) +
+ geom_bar(fill = unhcr_blue) +
+ facet_wrap(vars(method)) +
+ scale_fill_brewer(palette = "Accent") +
+ labs(x = "Country", y = "Amount in USD", 
+      title = "Total Amount per Country", 
+      fill = "Delivery Method") +
+  unhcr_theme()+
+ # theme_minimal() +
+  theme(legend.position = "top") +
+  coord_flip()+ 
+  scale_y_continuous(labels = format_si())
+
+```
+
+
+
+
+```{r, echo=FALSE, results='asis'}
+#knitr::kable(head(ftsflow2020, 10))
+
+
+flow2SoutAhmerica.paid.unique <- flow2SoutAhmerica.paid[ flow2SoutAhmerica.paid$childFlowIds == "NULL", ]
+
+## How many record per countries..
+
+```
 

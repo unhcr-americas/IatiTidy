@@ -2,32 +2,25 @@
 % Please edit documentation in R/get_FTS.R
 \name{get_FTS}
 \alias{get_FTS}
-\title{get_FTS}
+\title{Pull FTS data from API}
 \usage{
-get_FTS(
-  url = "https://api.hpc.tools",
-  ext = "/v1/public/fts/flow?",
-  year = "year=2019,2020"
-)
+get_FTS(boundary = "year=2020")
 }
 \arguments{
-\item{url}{URL for FTS API}
-
-\item{ext}{API endpoint}
-
-\item{year}{year to include}
+\item{boundary}{year or other to include}
 }
 \value{
-flows_frame data frame with flows
+list with flows_frame data frame with flows
 }
 \description{
 Function to get flows from FTS.
+https://api.hpc.tools/docs/v1/
+for instance
+https://api.hpc.tools/docs/v1/#public_fts_flow_get?year=2015&filterBy=destinationGlobalClusterCode:HEA&filterBy=destinationLocationID:114,115&groupby=organization&format=xml
 }
 \examples{
 \dontrun{
-data <- get_FTS(url = "https://api.hpc.tools",
-                             ext = "/v1/public/fts/flow?",
-                             year = "year=2019,2020")
+data <- get_FTS(boundary = "year=2020")
 }
 
 }
