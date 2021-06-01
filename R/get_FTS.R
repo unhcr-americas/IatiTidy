@@ -36,56 +36,56 @@ get_FTS <- function(boundary = "year=2020")
                  "&limit=1000"
   )
   
-    flows <- tibble() 
+    flows <- tibble::tibble() 
     
-    while(!is_null(url)) {
+    while(!is.null(url)) {
       tmp <- jsonlite::fromJSON(url)
       url <- tmp$meta$nextLink
-      flows <- flows %>% bind_rows(tmp$data$flows)
+      flows <- flows |> dplyr::bind_rows(tmp$data$flows)
     }
     
     flows.source <- 
-      flows %>% 
-      select(flowid  = id, sourceObjects) %>% 
-      unnest(cols = c(sourceObjects)) %>% 
-      mutate(across(c(organizationTypes, organizationSubTypes), as.character))
+      flows |> 
+      dplyr::select(flowid  = id, sourceObjects) |> 
+      tidyr::unnest(cols = c(sourceObjects)) |> 
+      dplyr::mutate(dplyr::across(c(organizationTypes, organizationSubTypes), as.character))
     flows.source <- merge(y = flows.source, x = flows, by.y = "flowid",by.x = "id")
     flows$sourceObjects <- NULL
     
     flows.destination <- 
-      flows %>% 
-      select(flowid = id, destinationObjects) %>% 
-      unnest(cols = c(destinationObjects)) %>% 
-      mutate(across(c(organizationTypes, organizationSubTypes), as.character))
+      flows |> 
+      dplyr::select(flowid = id, destinationObjects) |> 
+      tidyr::unnest(cols = c(destinationObjects)) |> 
+      dplyr::mutate(dplyr::across(c(organizationTypes, organizationSubTypes), as.character))
     flows.destination <- merge(x = flows.destination, y = flows, by.x = "flowid",by.y = "id" )
     flows$destinationObjects <- NULL
     
     flows.reports <- 
-      flows %>% 
-      select(flowid  = id, reportDetails) %>% 
-      unnest(cols = c(reportDetails))
+      flows |> 
+      dplyr::select(flowid  = id, reportDetails) |> 
+      tidyr::unnest(cols = c(reportDetails))
     flows.reports <- merge(x = flows.reports, y = flows, by.x = "flowid",by.y = "id" )
     flows$reportDetails <- NULL
     
     flows.child <- 
-      flows %>% 
-      select(flowid  = id, childFlowIds) %>% 
-      unnest(cols = c(childFlowIds))
+      flows |> 
+      dplyr::select(flowid  = id, childFlowIds) |> 
+      tidyr::unnest(cols = c(childFlowIds))
     
     flows.keywords <- 
-      flows %>% 
-      select(flowid  = id, keywords) %>% 
-      unnest(cols = c(keywords))  
+      flows |> 
+      dplyr::select(flowid  = id, keywords) |> 
+      tidyr::unnest(cols = c(keywords))  
     
     #levels(as.factor(flows.keywords$keywords))
     
-    return(list(flows,
-                flows.destination,
-                flows.source, 
-                flows.reports, 
-                flows.child, 
-                flows.keywords))
-      return(flows_frame)
+    return(list(flows = tibble::as_tibble(flows),
+                destination = tibble::as_tibble(flows.destination),
+                source = tibble::as_tibble(flows.source), 
+                reports = tibble::as_tibble(flows.reports), 
+                children = tibble::as_tibble(flows.child), 
+                keywords = tibble::as_tibble(flows.keywords)))
+      # return(flows_frame)
     
 }
 
