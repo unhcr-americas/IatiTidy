@@ -15,8 +15,13 @@ Imports:
     ggplot2,
     httr,
     rjson,
+    tibble,
     stringi,
-    stringr
+    stringr,
+    purrr,
+    jsonlite,
+    magrittr,
+    dplyr
 Suggests:
     testthat (>= 2.1.0)
 VignetteBuilder: 
